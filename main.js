@@ -21,8 +21,8 @@ const newsFilePath = 'saved_data/news.json';
     });
 
     await page.goto('https://family.e-klase.lv/');
-    await page.fill('#username', '130509-22584');
-    await page.fill('#password', 'j52*dazu');
+    await page.fill('#username', '');
+    await page.fill('#password', '');
     await page.click('#login-button');
 
     await page.waitForURL(/\/home/i, { waitUntil: 'networkidle' });
