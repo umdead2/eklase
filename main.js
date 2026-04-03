@@ -8,8 +8,8 @@ const summaryFilePath = 'saved_data/summary.json';
 const newsFilePath = 'saved_data/news.json';
 const evalNewsFilePath = 'saved_data/evalNews.json';
 
-const username = '';
-const password = '';
+const username = '130509-22584';
+const password = 'j52*dazu';
 // Izveidojam mapi, ja tās nav
 if (!fs.existsSync('saved_data')) fs.mkdirSync('saved_data');
 
@@ -43,9 +43,10 @@ if (!fs.existsSync('saved_data')) fs.mkdirSync('saved_data');
     const now = new Date();
     const currentYear = now.getFullYear();
     const isSecondSemester = (now.getMonth() + 1) < 9; 
+    const sameclass = false;
 
     const fromDate = isSecondSemester ? `${currentYear - 1}-09-01` : `${currentYear}-09-01`;
-    const toDate = isSecondSemester ? `${currentYear}-06-15` : `${currentYear + 1}-08-31`;
+    const toDate = isSecondSemester ? `${currentYear}-8-31` : `${currentYear + 1}-08-31`;
 
     if (authHeaders) {
         // Izpildām API pieprasījumus tieši no pārlūka vides
@@ -55,7 +56,7 @@ if (!fs.existsSync('saved_data')) fs.mkdirSync('saved_data');
                 fetch('/api/test-schedules', { headers: h }),
                 fetch('/api/evaluations/summary', { headers: h }),
                 fetch('/api/news', { headers: h }),
-                fetch(`/api/evaluation-ratings?includeSameLevelClasses=false&datePeriodModel.from=${from}&datePeriodModel.to=${to}`, { headers: h }),
+                fetch(`/api/evaluation-ratings?includeSameLevelClasses=${sameclass}&datePeriodModel.from=${from}&datePeriodModel.to=${to}`, { headers: h }),
             ]);      
             
             return {
