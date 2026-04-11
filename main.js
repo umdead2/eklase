@@ -8,8 +8,8 @@ const summaryFilePath = 'saved_data/summary.json';
 const newsFilePath = 'saved_data/news.json';
 const evalNewsFilePath = 'saved_data/evalNews.json';
 
-const username = '130509-22584';
-const password = 'j52*dazu';
+const username = '';
+const password = '';
 // Izveidojam mapi, ja tās nav
 if (!fs.existsSync('saved_data')) fs.mkdirSync('saved_data');
 
